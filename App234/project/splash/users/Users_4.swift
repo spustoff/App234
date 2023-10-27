@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OneSignalFramework
 
 struct Users_4: View {
     
@@ -41,7 +42,9 @@ struct Users_4: View {
                 
                 Button(action: {
                     
-                    status = true
+                    OneSignal.Notifications.requestPermission({ accepted in
+                      print("User accepted notifications: \(accepted)")
+                    }, fallbackToSettings: true)
                     
                 }, label: {
                     
